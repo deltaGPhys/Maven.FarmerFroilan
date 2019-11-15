@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.farm;
 
-import com.sun.scenario.effect.Crop;
+
+import com.zipcodewilmington.froilansfarm.crops.Crop;
 
 import java.util.ArrayList;
 import java.util.List;
