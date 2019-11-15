@@ -1,4 +1,4 @@
-package crop;
+package com.zipcodewilmington.froilansfarm.crops;
 
 import com.zipcodewilmington.froilansfarm.edibles.Edible;
 import com.zipcodewilmington.froilansfarm.interfaces.Produce;

@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm.people;
 
-import crop.Crop;
+import com.zipcodewilmington.froilansfarm.crops.Crop;
 
 public class Farmer extends Botanist {
     public void plant (Crop crop){
