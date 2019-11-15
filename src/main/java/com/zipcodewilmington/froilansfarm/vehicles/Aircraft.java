@@ -1,8 +1,10 @@
 package com.zipcodewilmington.froilansfarm.vehicles;
 
-public abstract class Aircraft extends Vehicles {
+public abstract class Aircraft extends Vehicle {
 
-   public abstract void fly();
+   public void fly() {
+
+   }
 
 
 }

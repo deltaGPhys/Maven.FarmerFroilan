@@ -2,6 +2,8 @@ package com.zipcodewilmington.froilansfarm.vehicles;
 
 public abstract class FarmVehicle {
 
-    public abstract void operate(Farm farm);
+    public void operate(Farm farm) {
+
+    }
 
 }
