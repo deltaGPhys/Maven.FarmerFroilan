@@ -1,0 +1,15 @@
+package farm;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Stable{
+    //List of Horses
+    List<Horse> horseList = new ArrayList<>();
+
+    public void add(Horse horse){
+        horseList.add(horse);
+    }
+
+
+}
