@@ -1,4 +1,4 @@
-package personPackage;
+package person;
 
 public class Botanist extends Person {
 
