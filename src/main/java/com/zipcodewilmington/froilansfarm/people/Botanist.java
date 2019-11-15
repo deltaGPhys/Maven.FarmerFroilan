@@ -1,4 +1,4 @@
-package person;
+package com.zipcodewilmington.froilansfarm.people;
 
 public class Botanist extends Person {
 
