@@ -1,13 +1,13 @@
-package farm;
+package com.zipcodewilmington.froilansfarm.farm;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Farm {
 
-    List<Field> fieldlist = new ArrayList<>();
-    List<Stable> stableList = new ArrayList<>();
-    List<ChickenCoop> coopList = new ArrayList<>();
+    List<Field> fieldlist;
+    List<Stable> stableList;
+    List<ChickenCoop> coopList;
     FarmHouse farmHouse;
 
 }

@@ -1,4 +1,4 @@
-package farm;
+package com.zipcodewilmington.froilansfarm.farm;
 
 import com.sun.scenario.effect.Crop;
 
@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CropRow {
     //List of Crop
-    private List<Crop> cropRowList = new ArrayList<>();
+    private List<Crop> cropRowList;
 
     //add
     public void add(Crop crop){

@@ -1,4 +1,6 @@
-package farm;
+package com.zipcodewilmington.froilansfarm.farm;
+
+import com.zipcodewilmington.froilansfarm.people.Person;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.List;
 public class FarmHouse {
 
     //List of Person
-    private List<Person> personList = new ArrayList<>();
+    private List<Person> personList;
 
     public void add(Person person){
         personList.add(person);

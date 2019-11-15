@@ -1,11 +1,11 @@
-package farm;
+package com.zipcodewilmington.froilansfarm.farm;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Field {
     //List of CropRow
-    List<CropRow> cropRowList = new ArrayList<>();
+    List<CropRow> cropRowList;
     //add
     //remove
     //size
