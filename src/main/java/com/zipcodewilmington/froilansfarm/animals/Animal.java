@@ -1,11 +1,24 @@
 package com.zipcodewilmington.froilansfarm.animals;
 
-public class Animal {
-    public void eat(){
+import com.zipcodewilmington.froilansfarm.edibles.Edible;
+import com.zipcodewilmington.froilansfarm.interfaces.Eater;
+import com.zipcodewilmington.froilansfarm.interfaces.NoiseMaker;
+import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
+import com.zipcodewilmington.froilansfarm.interfaces.Rider;
+
+public class Animal implements NoiseMaker, Eater {
+
+    public String makeNoise(){
+return "";
+    }
+
+
+
+    public void dismount() {
 
     }
-    public void makeNoise(){
+
+    public void eat(Edible edible) {
 
     }
-
 }
