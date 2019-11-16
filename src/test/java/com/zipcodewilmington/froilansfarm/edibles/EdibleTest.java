@@ -8,6 +8,12 @@ import static org.junit.Assert.*;
 public class EdibleTest {
 
     @Test
+    public void edibleTest() {
+        Edible edible = new Edible();
+        Assert.assertTrue(edible instanceof Edible);
+    }
+
+    @Test
     public void eggTest() {
         Egg egg = new Egg();
         Assert.assertTrue(egg instanceof Egg);

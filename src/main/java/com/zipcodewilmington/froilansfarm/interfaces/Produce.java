@@ -2,7 +2,11 @@ package com.zipcodewilmington.froilansfarm.interfaces;
 
 import com.zipcodewilmington.froilansfarm.edibles.Edible;
 
-public interface Produce {
+import java.util.ArrayList;
 
-    Edible yield();
+public interface Produce<E extends Edible> {
+
+    ArrayList<E> yield();
+
+    void growFood();
 }
