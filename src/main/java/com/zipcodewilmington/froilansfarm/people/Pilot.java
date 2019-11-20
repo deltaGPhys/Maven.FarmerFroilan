@@ -9,6 +9,10 @@ public class Pilot extends Person {
         this.aircraft = aircraft;
     }
 
+    public Pilot() {
+
+    }
+
     public Aircraft getAircraft() {
         return aircraft;
     }

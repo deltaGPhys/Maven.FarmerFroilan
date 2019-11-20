@@ -16,14 +16,13 @@ public class Farm {
    Field field;
 
    public Farm(){
-       this.fieldList = new ArrayList<>();
        this.stableList = new ArrayList<>();
        this.coopList = new ArrayList<>();
        this.vehicleList = new ArrayList<>();
        this.field = new Field();
    }
 
-   public void setFieldList(Field field){
+   public void setField(Field field){
        this.field = field;
    }
 

@@ -50,7 +50,7 @@ public class CornStalkTest {
     @Test
     public void yieldTest() {
         Assert.assertTrue(plant.getHasBeenHarvested());
-        plant.fertilizePlant();
+        plant.getFertilized();
         Assert.assertFalse(plant.getHasBeenHarvested());
         ArrayList<EarCorn> output = plant.yield();
         for (int i = 0; i < 100; i++) {
@@ -67,7 +67,7 @@ public class CornStalkTest {
     @Test
     public void fertilizeTest() {
         Assert.assertFalse(plant.getHasBeenFertilized());
-        plant.fertilizePlant();
+        plant.getFertilized();
         Assert.assertTrue(plant.getHasBeenFertilized());
         Assert.assertTrue(plant.getFruit().size() >= plant.getLowerBoundYield());
         Assert.assertTrue(plant.getFruit().size() <= plant.getUpperBoundYield());
