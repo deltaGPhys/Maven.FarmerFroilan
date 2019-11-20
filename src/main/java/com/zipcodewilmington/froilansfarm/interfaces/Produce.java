@@ -9,4 +9,6 @@ public interface Produce<E extends Edible> {
     ArrayList<E> yield();
 
     void growFood();
+
+    void beFertilized();
 }
