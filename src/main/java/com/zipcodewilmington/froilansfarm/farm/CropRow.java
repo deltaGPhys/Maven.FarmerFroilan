@@ -10,7 +10,11 @@ public class CropRow {
     //List of Crop
     private List<Crop> cropRowList;
 
-    List<Crop> getCropRowList = new List<>cropRowList;
+    public List<Crop> getCropRowList() {
+        return cropRowList;
+    }
+
+    List<Crop> CropRowList = new List<>crops;
 
 
     //add
