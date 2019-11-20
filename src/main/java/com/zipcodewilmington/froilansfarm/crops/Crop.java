@@ -42,7 +42,8 @@ public class Crop<E extends Edible> implements Produce {
         return upperBoundYield;
     }
 
-    public void fertilizePlant() {
+    @Override
+    public void beFertilized() {
         this.hasBeenFertilized = true;
         this.growFood();
     }
@@ -64,11 +65,6 @@ public class Crop<E extends Edible> implements Produce {
             this.fruit.add((E) growAFruit());
         }
         this.hasBeenHarvested = false;
-    }
-
-    @Override
-    public void beFertilized() {
-
     }
 
     public E growAFruit() {
