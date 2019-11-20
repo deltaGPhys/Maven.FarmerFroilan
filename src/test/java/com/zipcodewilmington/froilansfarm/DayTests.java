@@ -1,10 +1,13 @@
 package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.farm.Farm;
+import com.zipcodewilmington.froilansfarm.farm.Field;
 import com.zipcodewilmington.froilansfarm.people.Farmer;
 import com.zipcodewilmington.froilansfarm.people.Pilot;
 import org.junit.Before;
 import org.junit.Test;
+
+
 
 public class DayTests {
 
@@ -17,6 +20,7 @@ public class DayTests {
         farm = new Farm();
         froilan = new Farmer();
         froilanda = new Pilot();
+        farm.addField(new Field());
 
     }
 
