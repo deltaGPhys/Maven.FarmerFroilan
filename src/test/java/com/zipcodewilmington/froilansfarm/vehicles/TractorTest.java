@@ -17,4 +17,13 @@ public class TractorTest {
         Tractor tractor = new Tractor();
         Assert.assertTrue(tractor instanceof FarmVehicle);
     }
+
+    @Test
+    public void HarvestTest(){
+
+
+
+    }
+
+
 }

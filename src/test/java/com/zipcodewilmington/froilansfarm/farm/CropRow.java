@@ -14,5 +14,13 @@ public class CropRow {
 
 
     }
+    @Test
+    public void CropRowConstructorTest(){
+        Assert.assertTrue(Tomato instanceof CropRow);
+        Assert.assertTrue(Corn instanceof CropRow);
+
+
+
+    }
 
 }
