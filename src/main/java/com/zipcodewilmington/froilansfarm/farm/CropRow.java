@@ -30,9 +30,6 @@ public class CropRow {
            } catch(Exception e){
                 e.printStackTrace();
             }
-
-
         }
     }
-
 }

@@ -66,6 +66,11 @@ public class Crop<E extends Edible> implements Produce {
         this.hasBeenHarvested = false;
     }
 
+    @Override
+    public void beFertilized() {
+
+    }
+
     public E growAFruit() {
         return (E) new GenericFruit();
     }

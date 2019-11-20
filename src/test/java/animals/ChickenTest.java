@@ -19,6 +19,17 @@ public class ChickenTest {
     @Test
     public void constructorTest() {
         Assert.assertTrue(chicken instanceof Animal);
-        Assert.assertEquals(chicken.);
+        Assert.assertTrue(chicken instanceof Produce);
+    }
+
+    @Test
+    public void noiseTest(){
+        Assert.assertEquals("Bok bok", chicken.makeNoise());
+    }
+
+    @Test
+    public void growFood(){
+        chicken.growFood();
+        System.out.println(chicken.yield());
     }
 }
