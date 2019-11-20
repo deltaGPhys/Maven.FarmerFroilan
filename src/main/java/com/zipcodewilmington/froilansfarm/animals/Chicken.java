@@ -36,8 +36,8 @@ public class Chicken extends Animal implements Produce {
 
     @Override
     public void beFertilized() {
-        if (!hasBeenFertilized){
-            growFood();
-        }
+//        if (!hasBeenFertilized){
+//            growFood();
+//        }
     }
 }
