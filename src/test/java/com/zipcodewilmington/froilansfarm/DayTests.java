@@ -25,7 +25,6 @@ public class DayTests {
         froilan = new Farmer();
         froilanda = new Pilot();
         farm.setField(new Field());
-        //set the rows
 
         for (int i = 0; i<4; i++) {
             farm.addChickenCoop(new ChickenCoop());
