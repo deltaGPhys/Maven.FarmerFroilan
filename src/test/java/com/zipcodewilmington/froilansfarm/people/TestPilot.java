@@ -1,4 +1,4 @@
-package people;
+package com.zipcodewilmington.froilansfarm.people;
 
 import com.zipcodewilmington.froilansfarm.people.Person;
 import com.zipcodewilmington.froilansfarm.people.Pilot;
