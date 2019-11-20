@@ -14,7 +14,7 @@ public class CropRow {
         return cropRowList;
     }
 
-    List<Crop> CropRowList = new List<>crops;
+   // List<Crop> CropRowList = new List<>crops;
 
 
     //add
