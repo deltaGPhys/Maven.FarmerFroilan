@@ -13,7 +13,7 @@ return "";
     }
 
 
-    public void eat(Edible edible) {
-
+    public String eat(Edible edible) {
+        return "";
     }
 }
