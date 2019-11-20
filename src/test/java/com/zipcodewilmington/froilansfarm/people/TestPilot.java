@@ -1,7 +1,8 @@
-package people;
+package com.zipcodewilmington.froilansfarm.people;
 
 import com.zipcodewilmington.froilansfarm.people.Person;
 import com.zipcodewilmington.froilansfarm.people.Pilot;
+import com.zipcodewilmington.froilansfarm.vehicles.Aircraft;
 import org.junit.Assert;
 import org.junit.Test;
 

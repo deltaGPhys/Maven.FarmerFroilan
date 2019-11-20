@@ -14,8 +14,10 @@ public class CropRow {
         return cropRowList;
     }
 
-  List<Crop> CropRowList = new List<>crops;
 
+    public void setCropRowList(List<Crop> cropRowList) {
+        this.cropRowList = cropRowList;
+    }
 
     //add
     public void add(Crop crop) {
