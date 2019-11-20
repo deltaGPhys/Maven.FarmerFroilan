@@ -16,7 +16,7 @@ public class DayTests {
     public void setUp() throws Exception {
         farm = new Farm();
         froilan = new Farmer();
-        froilanda = new Pilot();
+//        froilanda = new Pilot();
 
     }
 

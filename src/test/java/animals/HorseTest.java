@@ -30,6 +30,6 @@ public class HorseTest {
     }
 
     @Test
-    public void eatTest() {Assert.assertEquals("Yum! Corn! I'm a happy horse yeehaw", horse.eat(corn));}
+    public void eatTest() {Assert.assertEquals("Yum! Corn! I'm a happy horse yeehaw!", horse.eat(corn));}
 
 }
