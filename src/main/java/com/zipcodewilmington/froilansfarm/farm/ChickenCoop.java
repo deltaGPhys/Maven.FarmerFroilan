@@ -12,5 +12,8 @@ public class ChickenCoop {
     public void add(Chicken chicken){
         chickenList.add(chicken);
     }
+    public void dailyEgg(Chicken chicken){
+        chicken.beFertilized();
+    }
 
 }

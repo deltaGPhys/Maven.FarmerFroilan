@@ -13,11 +13,6 @@ return "";
     }
 
 
-
-    public void dismount() {
-
-    }
-
     public void eat(Edible edible) {
 
     }
