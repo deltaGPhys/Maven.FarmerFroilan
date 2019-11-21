@@ -7,8 +7,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
-
 public class TomatoPlantTest {
 
     TomatoPlant plant;
@@ -52,7 +50,7 @@ public class TomatoPlantTest {
     @Test
     public void yieldTest() {
         Assert.assertTrue(plant.getHasBeenHarvested());
-        plant.fertilizePlant();
+        plant.beFertilized();
         Assert.assertFalse(plant.getHasBeenHarvested());
         ArrayList<Tomato> output = plant.yield();
         for (int i = 0; i < 100; i++) {
@@ -69,7 +67,7 @@ public class TomatoPlantTest {
     @Test
     public void fertilizeTest() {
         Assert.assertFalse(plant.getHasBeenFertilized());
-        plant.fertilizePlant();
+        plant.beFertilized();
         Assert.assertTrue(plant.getHasBeenFertilized());
         Assert.assertTrue(plant.getFruit().size() >= plant.getLowerBoundYield());
         Assert.assertTrue(plant.getFruit().size() <= plant.getUpperBoundYield());
