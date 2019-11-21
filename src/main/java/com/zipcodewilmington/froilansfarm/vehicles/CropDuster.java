@@ -1,8 +1,7 @@
 package com.zipcodewilmington.froilansfarm.vehicles;
 
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
-
-import java.lang.reflect.Field;
+import com.zipcodewilmington.froilansfarm.farm.Field;
 
 public class CropDuster extends Aircraft {
 
