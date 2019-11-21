@@ -1,10 +1,6 @@
 package com.zipcodewilmington.froilansfarm.people;
 
-import com.zipcodewilmington.froilansfarm.crops.Crop;
-import com.zipcodewilmington.froilansfarm.people.Person;
-import com.zipcodewilmington.froilansfarm.people.Pilot;
 import com.zipcodewilmington.froilansfarm.vehicles.Aircraft;
-import com.zipcodewilmington.froilansfarm.vehicles.CropDuster;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -25,11 +21,12 @@ public class TestPilot {
     public void getAircraftTest() {
         Pilot pilot = new Pilot();
 
-        CropDuster cropDuster = new CropDuster();
+        Aircraft cropDuster = new CropDusterPlane();
         Assert.assertTrue(cropDuster instanceof Aircraft);
-//        pilot.fly(cropDuster);
-//        Aircraft expect = cropDuster;
-//        Aircraft actual = pilot.getAircraft();
-//        Assert.assertEquals(expect, actual);
+
+        pilot.fly(cropDuster);
+        Aircraft expect = cropDuster;
+        Aircraft actual = pilot.getAircraft();
+        Assert.assertEquals(expect, actual);
     }
 }

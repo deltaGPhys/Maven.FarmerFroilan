@@ -9,8 +9,11 @@ import org.junit.Test;
 public class TestFarmer {
     @Test
     public void farmerTest1() {
+        Botanist farmer2 = new Farmer();
         Farmer farmer = new Farmer();
         Assert.assertTrue(farmer instanceof Person);
+        Assert.assertTrue(farmer2 instanceof Botanist);
+        Assert.assertTrue(farmer instanceof Botanist);
     }
     @Test
     public void farmerTest2() {
@@ -24,8 +27,9 @@ public class TestFarmer {
         farmer.setTractor(tractor);
         Tractor expect=tractor;
         Tractor actual=farmer.getTractor();
-Assert.assertEquals(expect,actual);
-
+        Assert.assertEquals(expect,actual);
     }
+
+
 
 }
