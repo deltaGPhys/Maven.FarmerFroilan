@@ -2,6 +2,8 @@ package com.zipcodewilmington.froilansfarm.interfaces;
 
 public interface NoiseMaker {
 
-    String makeNoise();
+     default String makeNoise() {
+        return null;
+    }
 
 }

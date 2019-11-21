@@ -5,7 +5,7 @@ import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 public class Vehicle implements Rideable, NoiseMaker {
 
     public String makeNoise() {
-        return null;
+        return "";
     }
 
 

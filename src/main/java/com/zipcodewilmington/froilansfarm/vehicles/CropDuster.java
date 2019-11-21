@@ -9,6 +9,11 @@ public class CropDuster extends Aircraft {
     public CropDuster() {
     }
 
+    public static String MakeNoise() {
+        return "fhfhfh";
+    }
+
+
     public void fly(Field field) {
 
     }
@@ -16,4 +21,6 @@ public class CropDuster extends Aircraft {
     public void fertilize(CropRow cropRow){
 
     }
+
+
 }
