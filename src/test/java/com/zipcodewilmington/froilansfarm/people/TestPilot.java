@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.people;
 
 import com.zipcodewilmington.froilansfarm.vehicles.Aircraft;
+import com.zipcodewilmington.froilansfarm.vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.vehicles.CropDusterTest;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +23,7 @@ public class TestPilot {
     public void getAircraftTest() {
         Pilot pilot = new Pilot();
 
-        Aircraft cropDuster = new CropDusterTest();
+        Aircraft cropDuster = new CropDuster();
         Assert.assertTrue(cropDuster instanceof Aircraft);
 
         pilot.fly(cropDuster);

@@ -13,5 +13,7 @@ public class Stable{
         horseList.add(horse);
     }
 
-
+    public List<Horse> getHorseList() {
+        return horseList;
+    }
 }
