@@ -3,11 +3,11 @@ package com.zipcodewilmington.froilansfarm.vehicles;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CropDuster {
+public class CropDusterTest {
 
     @Test
     public void CropDusterTest() {
-        CropDuster cropDuster = new CropDuster();
-        Assert.assertTrue(cropDuster instanceof CropDuster);
+        CropDusterTest cropDuster = new CropDusterTest();
+        Assert.assertTrue(cropDuster instanceof CropDusterTest);
     }
 }
