@@ -15,7 +15,7 @@ public class Chicken extends Animal implements Produce {
 
     public Chicken(){
         this.eggBasket = new ArrayList<>();
-        this.hasBeenFertilized = false;;
+        this.hasBeenFertilized = false;
     }
 
     public String makeNoise(){

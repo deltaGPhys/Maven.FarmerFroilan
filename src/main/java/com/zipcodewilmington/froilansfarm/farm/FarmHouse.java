@@ -15,5 +15,12 @@ public class FarmHouse {
         personList.add(person);
     }
 
+    public List<Person> getPersonList(){
+        return personList;
+    }
+
+    public void setPersonList(List<Person> personList){
+        this.personList = personList;
+    }
 
 }

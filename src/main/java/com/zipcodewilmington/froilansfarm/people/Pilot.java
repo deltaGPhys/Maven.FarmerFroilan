@@ -12,6 +12,10 @@ public class Pilot extends Person {
 
     }
 
+    public Pilot() {
+
+    }
+
     public Aircraft getAircraft() {
         return aircraft;
     }
