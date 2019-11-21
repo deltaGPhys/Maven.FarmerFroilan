@@ -39,7 +39,6 @@ public class DayTests {
         CropDuster cropDuster = new CropDuster();
         froilanda.fly(cropDuster);
         farm.addVehicle(cropDuster);
->>>>>>> b8f4851c8e6760f2b41d7af5c5698cb3a83d2ff8
     }
 
 
