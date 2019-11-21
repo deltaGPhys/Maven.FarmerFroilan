@@ -6,10 +6,7 @@ import com.zipcodewilmington.froilansfarm.farm.Field;
 import com.zipcodewilmington.froilansfarm.farm.Stable;
 import com.zipcodewilmington.froilansfarm.people.Farmer;
 import com.zipcodewilmington.froilansfarm.people.Pilot;
-import com.zipcodewilmington.froilansfarm.vehicles.Aircraft;
-import com.zipcodewilmington.froilansfarm.vehicles.CropDuster;
-import com.zipcodewilmington.froilansfarm.vehicles.Tractor;
-import com.zipcodewilmington.froilansfarm.vehicles.Vehicle;
+import com.zipcodewilmington.froilansfarm.vehicles.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,9 +35,9 @@ public class DayTests {
 
         farm.addVehicle(new Tractor());
         farm.addVehicle(new Tractor());
-        CropDuster cropDuster = new CropDuster();
-//        froilanda.fly(cropDuster);
-//        farm.addVehicle(cropDuster);
+        //CropDusterBS cropDusterBS = new CropDusterBS();
+//        froilanda.fly(cropDusterBS);
+//        farm.addVehicle(cropDusterBS);
     }
 
 
