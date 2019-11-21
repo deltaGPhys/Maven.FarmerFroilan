@@ -4,9 +4,9 @@ import com.zipcodewilmington.froilansfarm.farm.CropRow;
 import com.zipcodewilmington.froilansfarm.farm.Field;
 import com.zipcodewilmington.froilansfarm.vehicles.Aircraft;
 
-public class CropDusterPlane extends Aircraft {
+public class CropDuster extends Aircraft {
 
-    public CropDusterPlane() {
+    public CropDuster() {
     }
 
     public void fly(Field field) {
