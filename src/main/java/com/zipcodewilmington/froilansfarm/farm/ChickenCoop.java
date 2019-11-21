@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ChickenCoop {
     //List of Chickens
-    List<Chicken> chickenList;
+    List<Chicken> chickenList = new ArrayList<>();
 
     public void add(Chicken chicken){
         chickenList.add(chicken);
