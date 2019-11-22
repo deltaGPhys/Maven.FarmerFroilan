@@ -12,6 +12,7 @@ public class CropDusterTest {
         CropDuster cropDuster = new CropDuster();
         Assert.assertTrue(cropDuster instanceof Aircraft);
     }
+
     @Test
     public void CropDusterTest2() {
         CropDuster cropDuster = new CropDuster();
@@ -24,11 +25,11 @@ public class CropDusterTest {
         Assert.assertTrue(cropDuster instanceof NoiseMaker);
     }
 
-        @Test
-        public void MakeNoiseTest () {
+    @Test
+    public void MakeNoiseTest () {
+        Assert.assertEquals("fhfhfh", CropDuster.MakeNoise());
+    }
 
-            Assert.assertEquals("fhfhfh", CropDuster.MakeNoise());
-        }
     @Test
     public void flyTest(){
         CropDuster cropDuster = new CropDuster();
@@ -36,11 +37,10 @@ public class CropDusterTest {
     }
 
     @Test
-    public void  landTest(){
+    public void landTest(){
         CropDuster cropDuster = new CropDuster();
         Assert.assertFalse(cropDuster.land());
     }
 
-
-    }
+}
 

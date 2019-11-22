@@ -2,6 +2,12 @@ package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.animals.Horse;
+import com.zipcodewilmington.froilansfarm.crops.CornStalk;
+import com.zipcodewilmington.froilansfarm.crops.Crop;
+import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.edibles.EarCorn;
+import com.zipcodewilmington.froilansfarm.edibles.Egg;
+import com.zipcodewilmington.froilansfarm.edibles.Tomato;
 import com.zipcodewilmington.froilansfarm.farm.*;
 import com.zipcodewilmington.froilansfarm.people.Farmer;
 import com.zipcodewilmington.froilansfarm.people.Pilot;
@@ -10,7 +16,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.Random;
 
 
@@ -90,10 +95,107 @@ public class DayTests {
         Assert.assertEquals(15,chickens);
     }
 
+    @Test
     public void dailyTasks() {
+
     }
 
     @Test
-    public void Monday() {
+    public void SundayTest() {
+        DailyRidesAndFeeding();
+        DailyEating();
+        SundayPlanting();
+    }
+
+    @Test
+    public void DailyRidesAndFeedingTest() {
+        DailyRidesAndFeeding();
+    }
+
+    public void DailyRidesAndFeeding() {
+        farm.getStableList().stream()
+                .flatMap(stable-> stable.getHorseList().stream())
+                .forEach(horse -> {
+                    froilan.mount(horse);
+                    Assert.assertEquals(horse, froilan.getRidingDevice());
+                    froilan.dismount();
+                    Assert.assertEquals(null, froilan.getRidingDevice());
+                    for (int i = 0; i < 3; i++) {
+                        Assert.assertEquals("Yum! Corn! I'm a happy horse yeehaw!",horse.eat(new EarCorn()));
+                    }
+                });
+        froilan.mount(new Horse());
+    }
+
+    @Test
+    public void DailyEatingTest() {
+        DailyEating();
+    }
+
+    public void DailyEating() {
+        for (int i = 0; i < 5; i++) {
+            Assert.assertEquals("Yum! Fuel for a farmer!",froilan.eat(new Egg()));
+        }
+        for (int i = 0; i < 2; i++) {
+            Assert.assertEquals("Yum! Fuel for a farmer!",froilan.eat(new Tomato()));
+            Assert.assertEquals("Yum!",froilanda.eat(new EarCorn()));
+        }
+        Assert.assertEquals("Yum! Fuel for a farmer!",froilan.eat(new EarCorn()));
+        Assert.assertEquals("Yum!",froilanda.eat(new Tomato()));
+    }
+
+    @Test
+    public void SundayPlantingTest() {
+        SundayPlanting();
+    }
+
+    public void SundayPlanting() {
+        field = farm.getField();
+        field.getCropRowList().stream().forEach(
+                cropRow -> Assert.assertEquals(0,cropRow.getCropList().size())
+        );
+        froilan.plant(CornStalk.class, field.getCropRowList().get(0));
+        Assert.assertEquals(20,field.getCropRowList().get(0).getCropList().size());
+        Assert.assertTrue(field.getCropRowList().get(0).getCropList().get(0) instanceof CornStalk);
+
+        froilan.plant(TomatoPlant.class, field.getCropRowList().get(1));
+        Assert.assertEquals(20,field.getCropRowList().get(1).getCropList().size());
+        Assert.assertTrue(field.getCropRowList().get(1).getCropList().get(0) instanceof TomatoPlant);
+
+        for (int i = 2; i < 5; i++) {
+            froilan.plant(Crop.class, field.getCropRowList().get(i));
+            Assert.assertEquals(20, field.getCropRowList().get(i).getCropList().size());
+            Assert.assertTrue(field.getCropRowList().get(i).getCropList().get(0) instanceof Crop);
+        }
+    }
+
+    @Test
+    public void MondayTest() {
+
+    }
+
+    @Test
+    public void TuesdayTest() {
+
+    }
+
+    @Test
+    public void WednesdayTest() {
+
+    }
+
+    @Test
+    public void ThursdayTest() {
+
+    }
+
+    @Test
+    public void FridayTest() {
+
+    }
+
+    @Test
+    public void SaturdayTest() {
+
     }
 }
