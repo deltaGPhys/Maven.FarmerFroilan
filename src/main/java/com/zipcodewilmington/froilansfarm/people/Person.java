@@ -33,14 +33,14 @@ public class Person implements Rider, Eater, NoiseMaker {
     }
 
     public void mount(Rideable rideable) {
-       this.ridingDevice=ridingDevice;
+        this.ridingDevice = rideable;
     }
 
     public void dismount() {
-        this.ridingDevice=null;
+        this.ridingDevice = null;
     }
 
     public Rideable getRidingDevice() {
-        return ridingDevice;
+        return this.ridingDevice;
     }
 }

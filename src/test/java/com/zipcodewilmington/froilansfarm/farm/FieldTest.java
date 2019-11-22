@@ -3,11 +3,10 @@ package com.zipcodewilmington.froilansfarm.farm;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Field {
+public class FieldTest {
 
     @Test
-
-    public void FieldTest(){
+    public void fieldTest(){
         Field field = new Field();
         Assert.assertTrue(field instanceof Field);
     }
