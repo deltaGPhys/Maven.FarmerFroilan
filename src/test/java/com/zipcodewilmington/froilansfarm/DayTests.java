@@ -265,16 +265,8 @@ public class DayTests {
     }
 
     @Test
-    public void tuesdayHarvestTest() {
-        sundayPlanting();
-        mondayCropDusting();
-        tuesdayHarvest();
-    }
-
     public void tuesdayHarvest(){
-        Tractor track = new Tractor();
-        track.harvest(farm.getField());
-        Assert.assertEquals(0,track.harvest(farm.getField()).size());
+        Assert.assertEquals(0,t1.harvest(field).size() );
     }
 
     @Test
