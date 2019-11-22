@@ -103,12 +103,11 @@ public class DayTests {
     }
 
     @Test
-    public void dailyTasks() {
-
+    public void SundayTest() {
+        AllSunday();
     }
 
-    @Test
-    public void SundayTest() {
+    public void AllSunday() {
         DailyRidesAndFeeding();
         DailyEating();
         SundayPlanting();
@@ -178,13 +177,53 @@ public class DayTests {
 
     @Test
     public void MondayTest() {
-        CropDuster cd = new CropDuster();
-        froilan.plant(TomatoPlant.class,field.getCropRowList().get(0));
-        cd.fertilize(field);
+        AllSunday();
+        AllMonday();
+    }
+
+    public void AllMonday() {
+        DailyRidesAndFeeding();
+        DailyEating();
+        MondayCropDusting();
+    }
+
+    @Test
+    public void MondayCropDustingTest() {
+        SundayPlanting();
+        froilanda.mount(new CropDuster());
+        for (int i = 0; i < field.getCropRowList().size() ; i++) {
+            CropRow currentRow = field.getCropRowList().get(i);
+            cropDuster.fly();
+            Assert.assertTrue(cropDuster.isFlying());
+            cropDuster.fertilize(field);
+            Crop currentCrop = (Crop) currentRow.getCropList().get(i);
+            Assert.assertTrue(currentCrop.getHasBeenFertilized());
+        }
+    }
+
+    public void MondayCropDusting(){
+        froilanda.mount(new CropDuster());
+        for (int i = 0; i < field.getCropRowList().size() ; i++) {
+            CropRow currentRow = field.getCropRowList().get(i);
+            cropDuster.fly();
+            Assert.assertTrue(cropDuster.isFlying());
+            cropDuster.fertilize(field);
+            Crop currentCrop = (Crop) currentRow.getCropList().get(i);
+            Assert.assertTrue(currentCrop.getHasBeenFertilized());
+
+        }
     }
 
     @Test
     public void TuesdayTest() {
+        AllSunday();
+        AllMonday();
+        AllTuesday();
+    }
+
+    public void AllTuesday() {
+        DailyRidesAndFeeding();
+        DailyEating();
 
     }
 
