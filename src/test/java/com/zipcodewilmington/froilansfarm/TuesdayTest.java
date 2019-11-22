@@ -34,8 +34,8 @@ public class TuesdayTest {
     @Before
     public void setUp() throws Exception {
         farm = new Farm();
-        froilan = new Farmer();
-        froilanda = new Pilot();
+        froilan = new Farmer("Froilan");
+        froilanda = new Pilot("Froilanda");
         field = new Field();
         farm.setField(field);
 
