@@ -25,7 +25,7 @@ public class TuesdayTest {
 
     private Farm farm;
     private Farmer froilan;
-    private Field field;
+    private Field farmField;
     private Pilot froilanda;
     private CropDuster cropDuster;
 
@@ -36,8 +36,8 @@ public class TuesdayTest {
         farm = new Farm();
         froilan = new Farmer("Froilan");
         froilanda = new Pilot("Froilanda");
-        field = new Field();
-        farm.setField(field);
+        farmField = new Field();
+        farm.setField(farmField);
 
 
         for (int i = 0; i<4; i++) {
@@ -95,7 +95,9 @@ public class TuesdayTest {
 
     @Test
     public void tuesdayHarvest(){
-//        froilan.mount(new Tractor().harvest(field););
+        froilan.mount(farm.getVehicleList().get(1));
+//        farm.getVehicleList().get(1).mount(new Tractor().harvest(farmField));
+
     }
 
 

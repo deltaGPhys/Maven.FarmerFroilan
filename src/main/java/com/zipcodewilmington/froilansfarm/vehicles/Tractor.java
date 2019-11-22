@@ -1,6 +1,7 @@
 package com.zipcodewilmington.froilansfarm.vehicles;
 
-import java.lang.reflect.Field;
+
+import com.zipcodewilmington.froilansfarm.farm.Field;
 
 public class Tractor extends FarmVehicle {
 
@@ -10,9 +11,6 @@ public class Tractor extends FarmVehicle {
 
     public void harvest(Field field){
 
-
     }
-
-
 
 }
