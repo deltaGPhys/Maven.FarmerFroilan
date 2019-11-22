@@ -9,20 +9,20 @@ import org.junit.Test;
 public class TestFarmer {
     @Test
     public void farmerTest1() {
-        Botanist farmer2 = new Farmer();
-        Farmer farmer = new Farmer();
+        Botanist farmer2 = new Farmer("Jim");
+        Farmer farmer = new Farmer("Jam");
         Assert.assertTrue(farmer instanceof Person);
         Assert.assertTrue(farmer2 instanceof Botanist);
         Assert.assertTrue(farmer instanceof Botanist);
     }
     @Test
     public void farmerTest2() {
-        Farmer farmer = new Farmer();
+        Farmer farmer = new Farmer("Jam");
         Assert.assertTrue(farmer instanceof Farmer);
     }
     @Test
     public void getTractorTest(){
-        Farmer farmer=new Farmer();
+        Farmer farmer=new Farmer("Jom");
         Tractor tractor=new Tractor();
         farmer.setTractor(tractor);
         Tractor expect=tractor;
