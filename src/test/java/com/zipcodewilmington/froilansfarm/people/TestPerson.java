@@ -17,7 +17,7 @@ public class TestPerson {
     public void eatTest(){
         Person person=new Person("");
         Edible edible=new Edible();
-        String Expected="Yum! Fuel for a Farmer!";
+        String Expected="Yum!";
         String Actual=person.eat(edible);
         Assert.assertEquals(Expected,Actual);
 
