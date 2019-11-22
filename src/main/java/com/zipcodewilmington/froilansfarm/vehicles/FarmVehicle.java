@@ -2,14 +2,15 @@ package com.zipcodewilmington.froilansfarm.vehicles;
 
 import com.zipcodewilmington.froilansfarm.farm.Farm;
 
-public abstract class FarmVehicle extends Vehicle{
-public boolean isRiding;
+public abstract class FarmVehicle extends Vehicle {
 
+    private Farm farm;
 
-public void operate(Farm farm) {
-
+    public void operate(Farm farm) {
+        this.farm = farm;
     }
 
-    public abstract boolean Ridable();
-
+    public Farm getFarm() {
+        return farm;
+    }
 }

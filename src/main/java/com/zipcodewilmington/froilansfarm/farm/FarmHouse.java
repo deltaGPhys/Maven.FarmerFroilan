@@ -17,10 +17,6 @@ public class FarmHouse {
         personList.add(person);
     }
 
-    public void remove(Person person){
-        personList.remove(person);
-    }
-
     public List<Person> getPersonList(){
         return personList;
     }

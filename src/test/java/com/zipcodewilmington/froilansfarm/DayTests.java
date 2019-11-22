@@ -16,6 +16,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -27,6 +28,7 @@ public class DayTests {
     private Pilot froilanda;
     private CropDuster cropDuster;
     private FarmHouse farmHouse;
+    private Tractor t1,t2;
 
 
     @Before
@@ -61,8 +63,12 @@ public class DayTests {
             i++;
         }
 
-        farm.addVehicle(new Tractor());
-        farm.addVehicle(new Tractor());
+        t1 = new Tractor();
+        t1.operate(farm);
+        farm.addVehicle(t1);
+        t2 = new Tractor();
+        t2.operate(farm);
+        farm.addVehicle(t2);
         cropDuster = new CropDuster();
         froilanda.fly(cropDuster);
         farm.addVehicle(cropDuster);
@@ -77,6 +83,8 @@ public class DayTests {
         long numTractors = farm.getVehicleList().stream().filter(x-> x instanceof Tractor).count();
         Assert.assertEquals(2,numTractors);
         long numPlanes = farm.getVehicleList().stream().filter(x-> x instanceof CropDuster).count();
+        Assert.assertEquals(farm,t1.getFarm());
+        Assert.assertEquals(farm,t2.getFarm());
         Assert.assertEquals(1,numPlanes);
 
         Assert.assertEquals(cropDuster,froilanda.getAircraft());
@@ -96,23 +104,22 @@ public class DayTests {
     }
 
     @Test
-    public void dailyTasks() {
+    public void sundayTest() {
+        allSunday();
+    }
 
+    public void allSunday() {
+        dailyRidesAndFeeding();
+        dailyEating();
+        sundayPlanting();
     }
 
     @Test
-    public void SundayTest() {
-        DailyRidesAndFeeding();
-        DailyEating();
-        SundayPlanting();
+    public void dailyRidesAndFeedingTest() {
+        dailyRidesAndFeeding();
     }
 
-    @Test
-    public void DailyRidesAndFeedingTest() {
-        DailyRidesAndFeeding();
-    }
-
-    public void DailyRidesAndFeeding() {
+    public void dailyRidesAndFeeding() {
         farm.getStableList().stream()
             .flatMap(stable-> stable.getHorseList().stream())
             .forEach(horse -> {
@@ -128,11 +135,11 @@ public class DayTests {
     }
 
     @Test
-    public void DailyEatingTest() {
-        DailyEating();
+    public void dailyEatingTest() {
+        dailyEating();
     }
 
-    public void DailyEating() {
+    public void dailyEating() {
         for (int i = 0; i < 5; i++) {
             Assert.assertEquals("Yum! Fuel for a farmer!",froilan.eat(new Egg()));
         }
@@ -145,11 +152,11 @@ public class DayTests {
     }
 
     @Test
-    public void SundayPlantingTest() {
-        SundayPlanting();
+    public void sundayPlantingTest() {
+        sundayPlanting();
     }
 
-    public void SundayPlanting() {
+    public void sundayPlanting() {
         field = farm.getField();
         field.getCropRowList().stream().forEach(
                 cropRow -> Assert.assertEquals(0,cropRow.getCropList().size())
@@ -170,34 +177,123 @@ public class DayTests {
     }
 
     @Test
-    public void MondayTest() {
-        CropDuster cd = new CropDuster();
-        froilan.plant(TomatoPlant.class,field.getCropRowList().get(0));
-        cd.fertilize(field);
+    public void mondayTest() {
+        allSunday();
+        allMonday();
+    }
+
+    public void allMonday() {
+        dailyRidesAndFeeding();
+        dailyEating();
+        mondayCropDusting();
     }
 
     @Test
-    public void TuesdayTest() {
+    public void mondayCropDustingTest() {
+        sundayPlanting();
+        froilanda.mount(new CropDuster());
+        for (int i = 0; i < field.getCropRowList().size() ; i++) {
+            CropRow currentRow = field.getCropRowList().get(i);
+            cropDuster.fly();
+            Assert.assertTrue(cropDuster.isFlying());
+            cropDuster.fertilize(field);
+            Crop currentCrop = (Crop) currentRow.getCropList().get(i);
+            Assert.assertTrue(currentCrop.getHasBeenFertilized());
+        }
+    }
+
+    public void mondayCropDusting(){
+        froilanda.mount(new CropDuster());
+        for (int i = 0; i < field.getCropRowList().size() ; i++) {
+            CropRow currentRow = field.getCropRowList().get(i);
+            cropDuster.fly();
+            Assert.assertTrue(cropDuster.isFlying());
+            cropDuster.fertilize(field);
+            Crop currentCrop = (Crop) currentRow.getCropList().get(i);
+            Assert.assertTrue(currentCrop.getHasBeenFertilized());
+
+        }
+    }
+
+    @Test
+    public void tuesdayTest() {
+        allSunday();
+        allMonday();
+        allTuesday();
+    }
+
+    public void allTuesday() {
+        dailyRidesAndFeeding();
+        tuesdayEatingFroilan();
+        tuesdayEatingFroilanda();
+        tuesdayHarvest();
+    }
+
+
+    @Test
+    public void tuesdayEatingFroilanTest() {
+        tuesdayEatingFroilan();
+    }
+
+    public void tuesdayEatingFroilan(){
+        ArrayList<String> froilansFull = new ArrayList<>();
+        for (int i = 1 ; i <= 5 ; i++ ){
+            froilansFull.add(froilan.eat(new Egg())) ;
+        }
+        froilansFull.add(froilan.eat(new EarCorn()));
+        for (int i = 1; i <=2 ; i++){
+            froilansFull.add(froilan.eat(new Tomato()));
+        }
+        Assert.assertEquals(8, froilansFull.size());
+    }
+
+    @Test
+    public void tuesdayEatingFroilandaTest() {
+        tuesdayEatingFroilanda();
+    }
+
+    public void tuesdayEatingFroilanda(){
+        ArrayList<String> froilandasFull = new ArrayList<>();
+        for (int i = 1 ; i <= 2 ; i++ ){
+            froilandasFull.add(froilan.eat(new Egg())) ;
+        }
+        froilandasFull.add(froilan.eat(new Tomato()));
+        for (int i = 1; i <=2 ; i++){
+            froilandasFull.add(froilan.eat(new EarCorn()));
+        }
+        Assert.assertEquals(5, froilandasFull.size());
+    }
+
+    @Test
+    public void tuesdayHarvestTest() {
+        sundayPlanting();
+        mondayCropDusting();
+        tuesdayHarvest();
+    }
+
+    public void tuesdayHarvest(){
+        froilan.mount(farm.getVehicleList().get(1));
+        froilan.getTractor().harvest(field);
+        Assert.assertEquals(null,field.getCropRowList() );
+    }
+
+    @Test
+    public void wednesdayTest() {
 
     }
 
     @Test
-    public void WednesdayTest() {
+    public void thursdayTest() {
 
     }
 
     @Test
-    public void ThursdayTest() {
+    public void fridayTest() {
 
     }
 
     @Test
-    public void FridayTest() {
-
-    }
-
-    @Test
-    public void SaturdayTest() {
+    public void saturdayTest() {
 
     }
 }
