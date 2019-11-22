@@ -3,17 +3,24 @@ import com.zipcodewilmington.froilansfarm.interfaces.NoiseMaker;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 
 public class Vehicle implements Rideable, NoiseMaker {
+public boolean isRiding;
+
+
 
     public String makeNoise() {
         return "";
     }
 
 
-    public void mount(Rideable rideable) {
+    public boolean mount(Rideable rideable) {
+    isRiding = true;
+    return isRiding;
 
     }
 
-    public void dismount() {
+    public boolean dismount() {
+        isRiding = false;
+        return isRiding;
 
     }
 }

@@ -9,6 +9,11 @@ public class Tractor extends FarmVehicle {
         return "prprpr";
     }
 
+    @Override
+    public boolean Ridable() {
+        return false;
+    }
+
     public void harvest(Field field){
 
     }
