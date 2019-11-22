@@ -29,8 +29,6 @@ public class TuesdayTest {
     private Pilot froilanda;
     private CropDuster cropDuster;
 
-
-
     @Before
     public void setUp() throws Exception {
         farm = new Farm();
@@ -100,18 +98,18 @@ public class TuesdayTest {
 
 
     @Test
-    public void SundayRidesAndFeeding() {
+    public void tuesdayRidesAndFeeding() {
         farm.getStableList().stream()
-                .flatMap(stable-> stable.getHorseList().stream())
-                .forEach(horse -> {
-                    froilan.mount(horse);
-                    Assert.assertEquals(horse, froilan.getRidingDevice());
-                    froilan.dismount();
-                    Assert.assertEquals(null, froilan.getRidingDevice());
-                    for (int i = 0; i < 3; i++) {
-                        Assert.assertEquals("Yum! Corn! I'm a happy horse yeehaw!",horse.eat(new EarCorn()));
-                    }
-                });
+            .flatMap(stable-> stable.getHorseList().stream())
+            .forEach(horse -> {
+                froilan.mount(horse);
+                Assert.assertEquals(horse, froilan.getRidingDevice());
+                froilan.dismount();
+                Assert.assertEquals(null, froilan.getRidingDevice());
+                for (int i = 0; i < 3; i++) {
+                    Assert.assertEquals("Yum! Corn! I'm a happy horse yeehaw!",horse.eat(new EarCorn()));
+                }
+            });
     }
 
 }

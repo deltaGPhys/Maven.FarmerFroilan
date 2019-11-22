@@ -16,10 +16,6 @@ public class Field {
         }
     }
 
-    public void add(CropRow cropRow){
-        this.cropRowList.add(cropRow);
-    }
-
     public List<CropRow> getCropRowList() {
         return this.cropRowList;
     }
