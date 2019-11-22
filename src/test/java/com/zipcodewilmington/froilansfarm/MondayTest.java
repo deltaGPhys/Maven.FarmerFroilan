@@ -2,13 +2,11 @@ package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.animals.Horse;
+import com.zipcodewilmington.froilansfarm.crops.Crop;
 import com.zipcodewilmington.froilansfarm.edibles.EarCorn;
 import com.zipcodewilmington.froilansfarm.edibles.Egg;
 import com.zipcodewilmington.froilansfarm.edibles.Tomato;
-import com.zipcodewilmington.froilansfarm.farm.ChickenCoop;
-import com.zipcodewilmington.froilansfarm.farm.Farm;
-import com.zipcodewilmington.froilansfarm.farm.Field;
-import com.zipcodewilmington.froilansfarm.farm.Stable;
+import com.zipcodewilmington.froilansfarm.farm.*;
 import com.zipcodewilmington.froilansfarm.people.Farmer;
 import com.zipcodewilmington.froilansfarm.people.Pilot;
 import com.zipcodewilmington.froilansfarm.vehicles.*;
@@ -28,7 +26,6 @@ public class MondayTest {
     private Field field;
     private Pilot froilanda;
     private CropDuster cropDuster;
-    private boolean ;
 
 
     @Before
@@ -102,36 +99,39 @@ public class MondayTest {
 
     }
 
-    // check / rewrite // currently null
     @Test
-    public void mondayRidingTest() throws Exception{
-        setUp();
+    public void mondayRidingTest(){
         List<Stable> stableList = farm.getStableList();
-
-
         for(int i=0; i < stableList.size();i++){
             for(int j = 0; j < stableList.get(i).getHorseList().size();j++){
                 Horse currentHorse = stableList.get(i).getHorseList().get(j);
+                //Not sure both of them have to ride each horse and then feed?
                 froilan.mount(currentHorse);
                 Assert.assertEquals(currentHorse, froilan.getRidingDevice());
                 froilan.dismount();
-
-                //May not need these **
-//                froilanda.mount(currentHorse);
-//                froilanda.dismount();
-
+                froilanda.mount(currentHorse);
+                Assert.assertEquals(currentHorse, froilanda.getRidingDevice());
+                froilanda.dismount();
                 for (int k = 0; k < 3 ; k++) {
                     currentHorse.eat(new EarCorn());
+                    Assert.assertEquals("Yum! Corn! I'm a happy horse yeehaw!",currentHorse.eat(new EarCorn()));
                 }
             }
         }
 
     }
-    // finish
-    // On Monday, his sister, Froilanda uses the CropDuster to fly over the Field and fertilize each of the CropRow
+//    On Monday, his sister, Froilanda uses the CropDuster to fly over the Field and fertilize each of the CropRow
     @Test
     public void mondayCropDusting(){
         froilanda.mount(new CropDuster());
-        cropDuster.fly(field);
+        for (int i = 0; i < field.getCropRowList().size() ; i++) {
+            CropRow currentRow = field.getCropRowList().get(i);
+            cropDuster.fly();
+            Assert.assertTrue(cropDuster.isFlying());
+            cropDuster.fertilize(field);
+            Crop currentCrop = (Crop) currentRow.getCropList().get(i);
+            Assert.assertTrue(currentCrop.getHasBeenFertilized());
+
+        }
     }
 }
