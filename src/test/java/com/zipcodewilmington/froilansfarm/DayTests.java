@@ -27,6 +27,7 @@ public class DayTests {
     private Pilot froilanda;
     private CropDuster cropDuster;
     private FarmHouse farmHouse;
+    private Tractor t1,t2;
 
 
     @Before
@@ -61,8 +62,12 @@ public class DayTests {
             i++;
         }
 
-        farm.addVehicle(new Tractor());
-        farm.addVehicle(new Tractor());
+        t1 = new Tractor();
+        t1.operate(farm);
+        farm.addVehicle(t1);
+        t2 = new Tractor();
+        t2.operate(farm);
+        farm.addVehicle(t2);
         cropDuster = new CropDuster();
         froilanda.fly(cropDuster);
         farm.addVehicle(cropDuster);
@@ -77,6 +82,8 @@ public class DayTests {
         long numTractors = farm.getVehicleList().stream().filter(x-> x instanceof Tractor).count();
         Assert.assertEquals(2,numTractors);
         long numPlanes = farm.getVehicleList().stream().filter(x-> x instanceof CropDuster).count();
+        Assert.assertEquals(farm,t1.getFarm());
+        Assert.assertEquals(farm,t2.getFarm());
         Assert.assertEquals(1,numPlanes);
 
         Assert.assertEquals(cropDuster,froilanda.getAircraft());
