@@ -25,7 +25,8 @@ public class CoopTest {
         Chicken chickenBig = new Chicken();
         coop.add(chickenBig);
         coop.dailyEgg();
-        Assert.assertEquals(1, chickenBig.yield().size());
+        int eggs = chickenBig.yield().size();
+        Assert.assertTrue(1 <= eggs && eggs <= 5);
 
     }
 }

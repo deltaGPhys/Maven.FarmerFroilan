@@ -95,7 +95,7 @@ public class TuesdayTest {
     public void tuesdayHarvest(){
         froilan.mount(farm.getVehicleList().get(1));
         froilan.getTractor().harvest(farmField);
-
+        Assert.assertEquals(null,farmField.getCropRowList() );
     }
 
 
