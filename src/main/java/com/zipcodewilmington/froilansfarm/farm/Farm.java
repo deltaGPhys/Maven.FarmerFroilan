@@ -13,7 +13,7 @@ public class Farm {
    private List<ChickenCoop> coopList;
    private List<Vehicle> vehicleList;
    private FarmHouse farmHouse;
-   Field field;
+   private Field field;
 
    public Farm(){
        this.stableList = new ArrayList<>();
@@ -30,7 +30,7 @@ public class Farm {
        return field;
    }
 
-   public void setFarmHouse(){
+   public void setFarmHouse(FarmHouse farmHouse){
        this.farmHouse = farmHouse;
    }
 

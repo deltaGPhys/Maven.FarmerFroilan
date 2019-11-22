@@ -9,11 +9,10 @@ import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 public class Animal implements NoiseMaker, Eater {
 
     public String makeNoise(){
-return "";
+        return "<noise>";
     }
 
-
     public String eat(Edible edible) {
-        return "";
+        return "<yum>";
     }
 }

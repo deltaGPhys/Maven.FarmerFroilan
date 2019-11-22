@@ -5,11 +5,13 @@ import com.zipcodewilmington.froilansfarm.people.Person;
 import java.util.ArrayList;
 import java.util.List;
 
-//Only need 1
 public class FarmHouse {
 
-    //List of Person
     private List<Person> personList;
+
+    public FarmHouse() {
+        this.personList = new ArrayList<Person>();
+    }
 
     public void add(Person person){
         personList.add(person);
@@ -18,9 +20,4 @@ public class FarmHouse {
     public List<Person> getPersonList(){
         return personList;
     }
-
-    public void setPersonList(List<Person> personList){
-        this.personList = personList;
-    }
-
 }

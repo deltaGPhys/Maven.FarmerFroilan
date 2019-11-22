@@ -1,33 +1,28 @@
 package com.zipcodewilmington.froilansfarm.farm;
 
-
 import com.zipcodewilmington.froilansfarm.crops.Crop;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CropRow {
-    //List of Crop
-    private List<Crop> cropRowList;
+public class CropRow<E extends Crop> {
 
-    public List<Crop> getCropRowList() {
-        return cropRowList;
+    private List<E> cropList;
+
+    public CropRow() {
+        this.cropList = new ArrayList<E>();
     }
 
-
-    public void setCropRowList(List<Crop> cropRowList) {
-        this.cropRowList = cropRowList;
+    public List<E> getCropList() {
+        return this.cropList;
     }
 
-    //add
-    public void add(Crop crop) {
+    public void sow(Class<E> cropClass) {
 
         for (int i = 0; i < 20; i++) {
-
             try {
-
-                cropRowList.add(crop.getClass().newInstance());
-           } catch(Exception e){
+                this.cropList.add(cropClass.newInstance());
+            } catch(Exception e){
                 e.printStackTrace();
             }
         }
