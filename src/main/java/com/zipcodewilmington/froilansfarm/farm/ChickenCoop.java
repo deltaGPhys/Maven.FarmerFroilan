@@ -12,6 +12,11 @@ public class ChickenCoop {
     public void add(Chicken chicken){
         chickenList.add(chicken);
     }
+
+    public List<Chicken> getChickenList() {
+        return chickenList;
+    }
+
     public void dailyEgg(){
         for (Chicken c : chickenList){
             c.growFood();

@@ -25,12 +25,20 @@ public class Person implements Rider, Eater, NoiseMaker {
     }
 
     public String eat(Edible edible) {
+<<<<<<< HEAD
 
         return "yum";
     }
 
     public String makeNoise() {
         return "blah blah blah";
+=======
+        return "Yum! Fuel for a Farmer!";
+    }
+
+    public String makeNoise() {
+        return "E I E I OH ~ ";
+>>>>>>> 59fff0d7ef6ceef0586ca15544ecf5a7ff23e106
     }
 
 
