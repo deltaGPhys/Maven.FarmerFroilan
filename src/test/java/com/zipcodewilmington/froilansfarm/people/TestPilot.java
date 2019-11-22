@@ -8,19 +8,19 @@ import org.junit.Test;
 public class TestPilot {
     @Test
     public void pilotTest1() {
-        Pilot pilot = new Pilot();
+        Pilot pilot = new Pilot("");
         Assert.assertTrue(pilot instanceof Person);
     }
 
     @Test
     public void pilotTest2() {
-        Pilot pilot = new Pilot();
+        Pilot pilot = new Pilot("");
         Assert.assertTrue(pilot instanceof Pilot);
     }
 
     @Test
     public void getAircraftTest() {
-        Pilot pilot = new Pilot();
+        Pilot pilot = new Pilot("");
 
         Aircraft cropDuster = new CropDuster();
         Assert.assertTrue(cropDuster instanceof Aircraft);
