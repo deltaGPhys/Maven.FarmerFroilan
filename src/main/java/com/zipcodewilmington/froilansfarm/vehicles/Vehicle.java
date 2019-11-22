@@ -1,12 +1,11 @@
 package com.zipcodewilmington.froilansfarm.vehicles;
 import com.zipcodewilmington.froilansfarm.interfaces.NoiseMaker;
 import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
-import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 
-public class Vehicle implements Rider, NoiseMaker {
+public class Vehicle implements Rideable, NoiseMaker {
 
     public String makeNoise() {
-        return null;
+        return "";
     }
 
 

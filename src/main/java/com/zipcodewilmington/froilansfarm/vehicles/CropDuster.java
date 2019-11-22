@@ -1,10 +1,18 @@
 package com.zipcodewilmington.froilansfarm.vehicles;
 
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
-
-import java.lang.reflect.Field;
+import com.zipcodewilmington.froilansfarm.farm.Field;
+import com.zipcodewilmington.froilansfarm.vehicles.Aircraft;
 
 public class CropDuster extends Aircraft {
+
+    public CropDuster() {
+    }
+
+    public static String MakeNoise() {
+        return "fhfhfh";
+    }
+
 
     public void fly(Field field) {
 
@@ -13,4 +21,6 @@ public class CropDuster extends Aircraft {
     public void fertilize(CropRow cropRow){
 
     }
+
+
 }

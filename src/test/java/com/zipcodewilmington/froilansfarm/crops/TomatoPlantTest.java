@@ -14,6 +14,7 @@ public class TomatoPlantTest {
     @Before
     public void setUp() throws Exception {
         plant = new TomatoPlant();
+        Crop newPlant = new TomatoPlant();
     }
 
     @Test
