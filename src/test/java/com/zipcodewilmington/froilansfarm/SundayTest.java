@@ -83,14 +83,14 @@ public class SundayTest {
     @Test
     public void SundayEating() {
         for (int i = 0; i < 5; i++) {
-             Assert.assertEquals("yum",froilan.eat(new Egg()));
+             Assert.assertEquals("Yum! Fuel for a farmer!",froilan.eat(new Egg()));
         }
         for (int i = 0; i < 2; i++) {
-            Assert.assertEquals("yum",froilan.eat(new Tomato()));
-            Assert.assertEquals("yum",froilanda.eat(new EarCorn()));
+            Assert.assertEquals("Yum! Fuel for a farmer!",froilan.eat(new Tomato()));
+            Assert.assertEquals("Yum!",froilanda.eat(new EarCorn()));
         }
-        Assert.assertEquals("yum",froilan.eat(new EarCorn()));
-        Assert.assertEquals("yum",froilanda.eat(new Tomato()));
+        Assert.assertEquals("Yum! Fuel for a farmer!",froilan.eat(new EarCorn()));
+        Assert.assertEquals("Yum!",froilanda.eat(new Tomato()));
     }
 
     @Test
