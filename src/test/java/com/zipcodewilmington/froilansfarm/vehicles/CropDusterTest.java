@@ -29,7 +29,17 @@ public class CropDusterTest {
 
             Assert.assertEquals("fhfhfh", CropDuster.MakeNoise());
         }
+    @Test
+    public void flyTest(){
+        CropDuster cropDuster = new CropDuster();
+        Assert.assertTrue(cropDuster.fly());
+    }
 
+    @Test
+    public void  landTest(){
+        CropDuster cropDuster = new CropDuster();
+        Assert.assertFalse(cropDuster.land());
+    }
 
 
     }

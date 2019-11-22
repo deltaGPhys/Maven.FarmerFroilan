@@ -1,8 +1,6 @@
 package com.zipcodewilmington.froilansfarm.vehicles;
 
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
-import com.zipcodewilmington.froilansfarm.farm.Field;
-import com.zipcodewilmington.froilansfarm.vehicles.Aircraft;
 
 public class CropDuster extends Aircraft {
 
@@ -14,8 +12,9 @@ public class CropDuster extends Aircraft {
     }
 
 
-    public void fly(Field field) {
+    public boolean fly(){
 
+        return false;
     }
 
     public void fertilize(CropRow cropRow){

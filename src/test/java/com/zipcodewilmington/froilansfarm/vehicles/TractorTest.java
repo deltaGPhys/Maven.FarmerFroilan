@@ -35,6 +35,19 @@ public class TractorTest {
         Tractor tractor = new Tractor();
         Assert.assertEquals("prprpr", Tractor.MakeNoise());
   }
+@Test
+    public void MountTest(){
+        Tractor tractor = new Tractor();
+        Assert.assertTrue(tractor.mount(tractor));
+}
+
+    @Test
+    public void DismountTest() {
+        Tractor tractor = new Tractor();
+        Assert.assertFalse(tractor.dismount());
+
     }
+    }
+
 
 
