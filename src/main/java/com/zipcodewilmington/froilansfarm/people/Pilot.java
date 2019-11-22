@@ -5,13 +5,9 @@ import com.zipcodewilmington.froilansfarm.vehicles.Aircraft;
 public class Pilot extends Person {
     private Aircraft aircraft;
 
-    public Pilot(Aircraft aircraft) {
-        this.aircraft = aircraft;
+    public Pilot(String name) {
+        super(name);
     }
-    public Pilot(){
-
-    }
-
 
 
     public Aircraft getAircraft() {
