@@ -6,8 +6,8 @@ import java.util.List;
 public class Field {
     //List of CropRow
     List<CropRow> cropRowList;
-    //add
-    //remove
+
+    public void remove(CropRow cropRow) {cropRowList.remove(cropRow); }
     //size
     public void add(CropRow cropRow){
         cropRowList.add(cropRow);
