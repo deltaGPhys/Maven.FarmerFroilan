@@ -96,7 +96,7 @@ public class TuesdayTest {
     @Test
     public void tuesdayHarvest(){
         froilan.mount(farm.getVehicleList().get(1));
-//        farm.getVehicleList().get(1).mount(new Tractor().harvest(farmField));
+        froilan.getTractor().harvest(farmField);
 
     }
 
