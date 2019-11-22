@@ -30,7 +30,7 @@ public class Farm {
        return field;
    }
 
-   public void setFarmHouse(){
+   public void setFarmHouse(FarmHouse farmHouse){
        this.farmHouse = farmHouse;
    }
 

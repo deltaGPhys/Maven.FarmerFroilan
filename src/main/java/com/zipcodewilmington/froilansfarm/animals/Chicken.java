@@ -1,17 +1,16 @@
 package com.zipcodewilmington.froilansfarm.animals;
 
-import com.zipcodewilmington.froilansfarm.edibles.Edible;
 import com.zipcodewilmington.froilansfarm.edibles.Egg;
 import com.zipcodewilmington.froilansfarm.interfaces.Produce;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Chicken extends Animal implements Produce {
 
-    Egg edibleEgg = new Egg();
-    ArrayList<Egg> eggBasket;
-    boolean hasBeenFertilized;
-    boolean hasBeenHarvested;
+    private ArrayList<Egg> eggBasket;
+    private boolean hasBeenFertilized;
+    private boolean hasBeenHarvested;
 
     public Chicken(){
         this.eggBasket = new ArrayList<>();
@@ -25,19 +24,23 @@ public class Chicken extends Animal implements Produce {
     @Override
     public ArrayList yield() {
         hasBeenHarvested = true;
-        return eggBasket;
+        ArrayList<Egg> eggs = (ArrayList<Egg>) this.eggBasket.clone();
+        this.eggBasket.clear();
+        return eggs;
     }
 
     @Override
     public void growFood() {
-        eggBasket.add(edibleEgg);
-        hasBeenHarvested = false;
+        if (!this.hasBeenFertilized) {
+            for (int i = 0; i < 2+new Random().nextInt(4); i++) {
+                eggBasket.add(new Egg());
+            }
+            hasBeenHarvested = false;
+        }
     }
 
     @Override
     public void beFertilized() {
-//        if (!hasBeenFertilized){
-//            growFood();
-//        }
+        this.hasBeenFertilized = true;
     }
 }
