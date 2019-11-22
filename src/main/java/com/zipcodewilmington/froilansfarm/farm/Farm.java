@@ -42,19 +42,13 @@ public class Farm {
        stableList.add(stable);
     }
 
-    public void removeStable(Stable stable) {stableList.remove(stable);}
-
     public void addChickenCoop(ChickenCoop chickenCoop){
        coopList.add(chickenCoop);
     }
 
-    public void removeChickenCoop(ChickenCoop chickenCoop){coopList.add(chickenCoop);}
-
     public void addVehicle(Vehicle vehicle){
         vehicleList.add(vehicle);
     }
-
-    public void removeVehicle(Vehicle vehicle) {vehicleList.remove(vehicle);}
 
     public List<Stable> getStableList(){
        return stableList;
