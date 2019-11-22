@@ -20,16 +20,12 @@ public class Person implements Rider, Eater, NoiseMaker {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String eat(Edible edible) {
-        return "yum";
+        return "Yum!";
     }
 
     public String makeNoise() {
-        return "Yum! Fuel for a Farmer!";
+        return "Blah blah blah";
     }
 
     public void mount(Rideable rideable) {

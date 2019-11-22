@@ -14,12 +14,17 @@ public class Pilot extends Person {
         return aircraft;
     }
 
+    @Override
+    public String makeNoise() {
+        return "Pilot goes whoosh!";
+    }
 
 
     public void fly(Aircraft aircraft){
         //aircraft
         this.aircraft=aircraft;
     }
+
     public void stopFlying(){
         this.aircraft=null;
     }

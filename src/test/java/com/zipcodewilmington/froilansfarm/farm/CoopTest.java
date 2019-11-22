@@ -17,7 +17,7 @@ public class CoopTest {
         ChickenCoop coop = new ChickenCoop();
         Chicken chickenLittle = new Chicken();
         coop.add(chickenLittle);
-        Assert.assertTrue(coop.chickenList.contains(chickenLittle));
+        Assert.assertTrue(coop.getChickenList().contains(chickenLittle));
     }
     @Test
     public void dailyEggTest(){

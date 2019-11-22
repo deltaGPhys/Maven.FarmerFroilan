@@ -17,10 +17,6 @@ public class CropRow<E extends Crop> {
         return this.cropList;
     }
 
-    public void setCropList(List<E> cropList) {
-        this.cropList = cropList;
-    }
-
     public void sow(Class<E> cropClass) {
 
         for (int i = 0; i < 20; i++) {
