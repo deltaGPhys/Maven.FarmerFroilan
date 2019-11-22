@@ -102,16 +102,16 @@ public class TuesdayTest {
     @Test
     public void tuesdayRidesAndFeeding() {
         farm.getStableList().stream()
-            .flatMap(stable-> stable.getHorseList().stream())
-            .forEach(horse -> {
-                froilan.mount(horse);
-                Assert.assertEquals(horse, froilan.getRidingDevice());
-                froilan.dismount();
-                Assert.assertEquals(null, froilan.getRidingDevice());
-                for (int i = 0; i < 3; i++) {
-                    Assert.assertEquals("Yum! Corn! I'm a happy horse yeehaw!",horse.eat(new EarCorn()));
-                }
-            });
+                .flatMap(stable-> stable.getHorseList().stream())
+                .forEach(horse -> {
+                    froilan.mount(horse);
+                    Assert.assertEquals(horse, froilan.getRidingDevice());
+                    froilan.dismount();
+                    Assert.assertEquals(null, froilan.getRidingDevice());
+                    for (int i = 0; i < 3; i++) {
+                        Assert.assertEquals("Yum! Corn! I'm a happy horse yeehaw!",horse.eat(new EarCorn()));
+                    }
+                });
     }
 
 }
