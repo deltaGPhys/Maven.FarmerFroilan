@@ -32,8 +32,8 @@ public class SundayTest {
     @Before
     public void setUp() throws Exception {
         farm = new Farm();
-        froilan = new Farmer();
-        froilanda = new Pilot();
+        froilan = new Farmer("Froilan");
+        froilanda = new Pilot("Froilanda");
         field = new Field();
         farm.setField(field);
 
@@ -70,9 +70,9 @@ public class SundayTest {
                 .flatMap(stable-> stable.getHorseList().stream())
                 .forEach(horse -> {
                     froilan.mount(horse);
-                    Assert.assertEquals(horse, froilan.getCurrentRide());
+                    Assert.assertEquals(horse, froilan.getRidingDevice());
                     froilan.dismount();
-                    Assert.assertEquals(null, froilan.getCurrentRide());
+                    Assert.assertEquals(null, froilan.getRidingDevice());
                     for (int i = 0; i < 3; i++) {
                         Assert.assertEquals("yum",horse.eat(new EarCorn()));
                     }

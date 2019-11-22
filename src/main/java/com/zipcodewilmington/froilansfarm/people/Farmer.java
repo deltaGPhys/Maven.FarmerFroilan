@@ -7,10 +7,8 @@ import com.zipcodewilmington.froilansfarm.vehicles.Tractor;
 public class Farmer extends Botanist {
 Tractor tractor;
 
-//it happened when i created a field "name" in farmer
-    public Farmer(Tractor tractor) {
-
-        this.tractor = tractor;
+    public Farmer(String name) {
+        super(name);
     }
 
 
