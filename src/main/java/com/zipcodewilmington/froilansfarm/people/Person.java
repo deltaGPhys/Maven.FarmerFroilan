@@ -9,11 +9,11 @@ import com.zipcodewilmington.froilansfarm.interfaces.Rider;
 public class Person implements Rider, Eater, NoiseMaker {
 
     public String eat(Edible edible) {
-        return null;
+        return "Yum! Fuel for a Farmer!";
     }
 
     public String makeNoise() {
-        return null;
+        return "E I E I OH ~ ";
     }
 
     public void mount(Rideable rideable) {
