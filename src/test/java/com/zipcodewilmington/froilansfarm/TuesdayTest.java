@@ -2,10 +2,9 @@ package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.animals.Horse;
-import com.zipcodewilmington.froilansfarm.edibles.EarCorn;
-import com.zipcodewilmington.froilansfarm.edibles.Egg;
-import com.zipcodewilmington.froilansfarm.edibles.GenericFruit;
-import com.zipcodewilmington.froilansfarm.edibles.Tomato;
+import com.zipcodewilmington.froilansfarm.crops.Crop;
+import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.edibles.*;
 import com.zipcodewilmington.froilansfarm.farm.ChickenCoop;
 import com.zipcodewilmington.froilansfarm.farm.Farm;
 import com.zipcodewilmington.froilansfarm.farm.Field;
@@ -93,10 +92,32 @@ public class TuesdayTest {
 
     @Test
     public void tuesdayHarvest(){
-        froilan.mount(farm.getVehicleList().get(1));
-        farm.getVehicleList().get(1);
-        froilan.getTractor().harvest(farm.getField());
-        Assert.assertEquals(null,farmField.getCropRowList() );
+        froilan.plant(TomatoPlant.class, farmField.getCropRowList().get(0));
+        cropDuster.fertilize(farmField);
+
+        Tractor tractor = new Tractor();
+        ArrayList<Edible> yield = tractor.harvest(farmField);
+        ArrayList<Integer> expectedMins = new ArrayList<>();
+        farmField.getCropRowList().stream()
+                .flatMap( row -> row.getCropList().stream())
+                .forEach( crop -> {
+                    expectedMins.add(((Crop) crop).getLowerBoundYield());
+                });
+        int expectedMin = expectedMins.stream().mapToInt(x -> x).sum();
+        Assert.assertTrue(expectedMin <= yield.size());
+
+        ArrayList<Integer> expectedMaxes = new ArrayList<>();
+        farmField.getCropRowList().stream()
+                .flatMap( row -> row.getCropList().stream())
+                .forEach( crop -> {
+                    expectedMaxes.add(((Crop) crop).getUpperBoundYield());
+                });
+        int expectedMax = expectedMaxes.stream().mapToInt(x -> x).sum();
+        Assert.assertTrue(expectedMax >= yield.size());
+
+        yield.stream().forEach( fruit -> {
+            Assert.assertTrue(fruit instanceof Tomato);
+        });
     }
 
 
