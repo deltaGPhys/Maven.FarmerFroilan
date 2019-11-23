@@ -4,7 +4,7 @@ import com.zipcodewilmington.froilansfarm.edibles.Edible;
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
 import com.zipcodewilmington.froilansfarm.vehicles.Tractor;
 
-public class Farmer<E extends CropRow> extends Botanist {
+public class Farmer extends Botanist {
 
     private Tractor tractor;
 

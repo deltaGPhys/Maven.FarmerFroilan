@@ -2,9 +2,6 @@ package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.animals.Horse;
-import com.zipcodewilmington.froilansfarm.edibles.EarCorn;
-import com.zipcodewilmington.froilansfarm.edibles.Egg;
-import com.zipcodewilmington.froilansfarm.edibles.Tomato;
 import com.zipcodewilmington.froilansfarm.farm.*;
 import com.zipcodewilmington.froilansfarm.people.Farmer;
 import com.zipcodewilmington.froilansfarm.people.Pilot;
@@ -14,16 +11,16 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Random;
 
-public class WednesdayTest {
+public class ThursdayTest {
     private Farm farm;
     private Farmer froilan;
     private Field field;
     private Pilot froilanda;
     private CropDuster cropDuster;
     private FarmHouse farmHouse;
+    private Tractor t1,t2;
 
 
     @Before
@@ -58,8 +55,12 @@ public class WednesdayTest {
             i++;
         }
 
-        farm.addVehicle(new Tractor());
-        farm.addVehicle(new Tractor());
+        t1 = new Tractor();
+        t1.operate(farm);
+        farm.addVehicle(t1);
+        t2 = new Tractor();
+        t2.operate(farm);
+        farm.addVehicle(t2);
         cropDuster = new CropDuster();
         froilanda.fly(cropDuster);
         farm.addVehicle(cropDuster);
@@ -74,6 +75,8 @@ public class WednesdayTest {
         long numTractors = farm.getVehicleList().stream().filter(x-> x instanceof Tractor).count();
         Assert.assertEquals(2,numTractors);
         long numPlanes = farm.getVehicleList().stream().filter(x-> x instanceof CropDuster).count();
+        Assert.assertEquals(farm,t1.getFarm());
+        Assert.assertEquals(farm,t2.getFarm());
         Assert.assertEquals(1,numPlanes);
 
         Assert.assertEquals(cropDuster,froilanda.getAircraft());
@@ -91,22 +94,9 @@ public class WednesdayTest {
         int chickens = farm.getCoopList().stream().mapToInt(x -> x.getChickenList().size()).sum();
         Assert.assertEquals(15,chickens);
     }
-
-        @Test
-        public void wednesdayEatingTestFroilan(){
-            ArrayList<String> froilansFull = new ArrayList<>();
-            for (int i = 1 ; i <= 6 ; i++ ){
-                froilansFull.add(froilan.eat(new Egg())) ;
-            }
-            froilansFull.add(froilan.eat(new EarCorn()));
-            for (int i = 1; i <=3 ; i++){
-                froilansFull.add(froilan.eat(new Tomato()));
-            }
-            Assert.assertEquals(10, froilansFull.size());
-        }
+    @Test
+    public void conversationTest(){
 
 
-        }
-
-
-
+    }
+}

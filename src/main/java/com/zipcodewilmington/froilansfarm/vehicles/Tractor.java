@@ -1,6 +1,11 @@
 package com.zipcodewilmington.froilansfarm.vehicles;
 
-import java.lang.reflect.Field;
+
+import com.zipcodewilmington.froilansfarm.crops.Crop;
+import com.zipcodewilmington.froilansfarm.edibles.Edible;
+import com.zipcodewilmington.froilansfarm.farm.Field;
+
+import java.util.ArrayList;
 
 public class Tractor extends FarmVehicle {
 
@@ -8,14 +13,14 @@ public class Tractor extends FarmVehicle {
         return "prprpr";
     }
 
-    @Override
-    public boolean Ridable() {
-        return false;
-    }
-
-    public void harvest(Field field){
-
-
+    public ArrayList<Edible> harvest(Field field){
+        ArrayList<Edible> yield = new ArrayList<>();
+        field.getCropRowList().stream()
+                .flatMap( row -> row.getCropList().stream())
+                .forEach( crop -> {
+                    yield.addAll(((Crop) crop).yield());
+                });
+        return yield;
     }
 
 }

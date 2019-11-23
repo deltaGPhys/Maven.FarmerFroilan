@@ -2,10 +2,9 @@ package com.zipcodewilmington.froilansfarm;
 
 import com.zipcodewilmington.froilansfarm.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.animals.Horse;
-import com.zipcodewilmington.froilansfarm.edibles.EarCorn;
-import com.zipcodewilmington.froilansfarm.edibles.Egg;
-import com.zipcodewilmington.froilansfarm.edibles.GenericFruit;
-import com.zipcodewilmington.froilansfarm.edibles.Tomato;
+import com.zipcodewilmington.froilansfarm.crops.Crop;
+import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
+import com.zipcodewilmington.froilansfarm.edibles.*;
 import com.zipcodewilmington.froilansfarm.farm.ChickenCoop;
 import com.zipcodewilmington.froilansfarm.farm.Farm;
 import com.zipcodewilmington.froilansfarm.farm.Field;
@@ -25,7 +24,7 @@ public class TuesdayTest {
 
     private Farm farm;
     private Farmer froilan;
-    private Field field;
+    private Field farmField;
     private Pilot froilanda;
     private CropDuster cropDuster;
 
@@ -34,8 +33,8 @@ public class TuesdayTest {
         farm = new Farm();
         froilan = new Farmer("Froilan");
         froilanda = new Pilot("Froilanda");
-        field = new Field();
-        farm.setField(field);
+        farmField = new Field();
+        farm.setField(farmField);
 
 
         for (int i = 0; i<4; i++) {
@@ -93,23 +92,48 @@ public class TuesdayTest {
 
     @Test
     public void tuesdayHarvest(){
-//        froilan.mount(new Tractor().harvest(field););
+        froilan.plant(TomatoPlant.class, farmField.getCropRowList().get(0));
+        cropDuster.fertilize(farmField);
+
+        Tractor tractor = new Tractor();
+        ArrayList<Edible> yield = tractor.harvest(farmField);
+        ArrayList<Integer> expectedMins = new ArrayList<>();
+        farmField.getCropRowList().stream()
+                .flatMap( row -> row.getCropList().stream())
+                .forEach( crop -> {
+                    expectedMins.add(((Crop) crop).getLowerBoundYield());
+                });
+        int expectedMin = expectedMins.stream().mapToInt(x -> x).sum();
+        Assert.assertTrue(expectedMin <= yield.size());
+
+        ArrayList<Integer> expectedMaxes = new ArrayList<>();
+        farmField.getCropRowList().stream()
+                .flatMap( row -> row.getCropList().stream())
+                .forEach( crop -> {
+                    expectedMaxes.add(((Crop) crop).getUpperBoundYield());
+                });
+        int expectedMax = expectedMaxes.stream().mapToInt(x -> x).sum();
+        Assert.assertTrue(expectedMax >= yield.size());
+
+        yield.stream().forEach( fruit -> {
+            Assert.assertTrue(fruit instanceof Tomato);
+        });
     }
 
 
     @Test
     public void tuesdayRidesAndFeeding() {
         farm.getStableList().stream()
-            .flatMap(stable-> stable.getHorseList().stream())
-            .forEach(horse -> {
-                froilan.mount(horse);
-                Assert.assertEquals(horse, froilan.getRidingDevice());
-                froilan.dismount();
-                Assert.assertEquals(null, froilan.getRidingDevice());
-                for (int i = 0; i < 3; i++) {
-                    Assert.assertEquals("Yum! Corn! I'm a happy horse yeehaw!",horse.eat(new EarCorn()));
-                }
-            });
+                .flatMap(stable-> stable.getHorseList().stream())
+                .forEach(horse -> {
+                    froilan.mount(horse);
+                    Assert.assertEquals(horse, froilan.getRidingDevice());
+                    froilan.dismount();
+                    Assert.assertEquals(null, froilan.getRidingDevice());
+                    for (int i = 0; i < 3; i++) {
+                        Assert.assertEquals("Yum! Corn! I'm a happy horse yeehaw!",horse.eat(new EarCorn()));
+                    }
+                });
     }
 
 }
