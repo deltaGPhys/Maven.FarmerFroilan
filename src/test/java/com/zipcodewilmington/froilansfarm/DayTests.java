@@ -265,16 +265,8 @@ public class DayTests {
     }
 
     @Test
-    public void tuesdayHarvestTest() {
-        sundayPlanting();
-        mondayCropDusting();
-        tuesdayHarvest();
-    }
-
     public void tuesdayHarvest(){
-        froilan.mount(farm.getVehicleList().get(1));
-        froilan.getTractor().harvest(field);
-        Assert.assertEquals(null,field.getCropRowList() );
+        Assert.assertEquals(0,t1.harvest(field).size());
     }
 
     @Test
