@@ -266,7 +266,7 @@ public class DayTests {
 
     @Test
     public void tuesdayHarvest(){
-        Assert.assertEquals(0,t1.harvest(field).size() );
+        Assert.assertEquals(0,t1.harvest(field).size());
     }
 
     @Test
