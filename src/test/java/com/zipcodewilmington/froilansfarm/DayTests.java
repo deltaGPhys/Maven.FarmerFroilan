@@ -279,7 +279,15 @@ public class DayTests {
 
     @Test
     public void wednesdayTest() {
+        allSunday();
+        allMonday();
+        allTuesday();
+        allWednesday();
+    }
 
+    public void allWednesday() {
+        dailyRidesAndFeeding();
+        dailyEating();
     }
 
     @Test

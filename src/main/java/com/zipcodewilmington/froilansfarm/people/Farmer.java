@@ -2,6 +2,7 @@ package com.zipcodewilmington.froilansfarm.people;
 
 import com.zipcodewilmington.froilansfarm.edibles.Edible;
 import com.zipcodewilmington.froilansfarm.farm.CropRow;
+import com.zipcodewilmington.froilansfarm.interfaces.Rideable;
 import com.zipcodewilmington.froilansfarm.vehicles.Tractor;
 
 public class Farmer extends Botanist {
@@ -28,6 +29,16 @@ public class Farmer extends Botanist {
     @Override
     public String makeNoise() {
         return "Early to bed, early to rise...";
+    }
+
+    @Override
+    public void mount(Rideable rideable) {
+        this.tractor = (Tractor) rideable;
+    }
+
+    @Override
+    public void dismount() {
+        this.tractor = null;
     }
 
     @Override
