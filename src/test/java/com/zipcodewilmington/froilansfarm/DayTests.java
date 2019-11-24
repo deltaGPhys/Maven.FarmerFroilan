@@ -5,9 +5,7 @@ import com.zipcodewilmington.froilansfarm.animals.Horse;
 import com.zipcodewilmington.froilansfarm.crops.CornStalk;
 import com.zipcodewilmington.froilansfarm.crops.Crop;
 import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
-import com.zipcodewilmington.froilansfarm.edibles.EarCorn;
-import com.zipcodewilmington.froilansfarm.edibles.Egg;
-import com.zipcodewilmington.froilansfarm.edibles.Tomato;
+import com.zipcodewilmington.froilansfarm.edibles.*;
 import com.zipcodewilmington.froilansfarm.farm.*;
 import com.zipcodewilmington.froilansfarm.people.Farmer;
 import com.zipcodewilmington.froilansfarm.people.Pilot;
@@ -29,7 +27,7 @@ public class DayTests {
     private CropDuster cropDuster;
     private FarmHouse farmHouse;
     private Tractor t1,t2;
-
+    private TomatoPlant porchTomato;
 
     @Before
     public void setUp() throws Exception {
@@ -101,6 +99,17 @@ public class DayTests {
 
         int chickens = farm.getCoopList().stream().mapToInt(x -> x.getChickenList().size()).sum();
         Assert.assertEquals(15,chickens);
+    }
+
+    @Test
+    public void allWeekTest() {
+        allSunday();
+        allMonday();
+        allTuesday();
+        allWednesday();
+        allThursday();
+        allFriday();
+        allSaturday();
     }
 
     @Test
@@ -204,11 +213,11 @@ public class DayTests {
 
     public void mondayCropDusting(){
         froilanda.mount(new CropDuster());
+        cropDuster.fly();
+        cropDuster.fertilize(field);
         for (int i = 0; i < field.getCropRowList().size() ; i++) {
             CropRow currentRow = field.getCropRowList().get(i);
-            cropDuster.fly();
             Assert.assertTrue(cropDuster.isFlying());
-            cropDuster.fertilize(field);
             Crop currentCrop = (Crop) currentRow.getCropList().get(i);
             Assert.assertTrue(currentCrop.getHasBeenFertilized());
 
@@ -228,7 +237,6 @@ public class DayTests {
         tuesdayEatingFroilanda();
         tuesdayHarvest();
     }
-
 
     @Test
     public void tuesdayEatingFroilanTest() {
@@ -265,8 +273,26 @@ public class DayTests {
     }
 
     @Test
+    public void tuesdayHarvestTest() {
+        allSunday();
+        allMonday();
+        tuesdayHarvest();
+    }
+
     public void tuesdayHarvest(){
-        Assert.assertEquals(0,t1.harvest(field).size());
+        froilan.mount(t1);
+        ArrayList<Edible> yield = t1.harvest(field);
+
+        Assert.assertTrue(150 <= yield.size());
+        Assert.assertTrue(960 >= yield.size());
+
+        yield.stream().forEach( fruit -> {
+            Assert.assertTrue(fruit instanceof Edible);
+        });
+        int numTom = yield.stream().mapToInt(fruit -> (fruit instanceof Tomato) ? 1 : 0).sum();
+        int numCorn = yield.stream().mapToInt(fruit -> (fruit instanceof EarCorn) ? 1 : 0).sum();
+        int numGen = yield.stream().mapToInt(fruit -> (fruit instanceof GenericFruit) ? 1 : 0).sum();
+        System.out.println(String.format("Harvested: %d Tomatoes, %d Ears of Corn, and %d Generic Fruits", numTom, numCorn, numGen));
     }
 
     @Test
@@ -284,16 +310,64 @@ public class DayTests {
 
     @Test
     public void thursdayTest() {
+        allThursday();
+    }
 
+    public void allThursday() {
+        dailyRidesAndFeeding();
+        dailyEating();
     }
 
     @Test
     public void fridayTest() {
+        allFriday();
+    }
 
+    public void allFriday() {
+        dailyRidesAndFeeding();
+        dailyEating();
+        plantPorchTomato();
+    }
+
+    @Test
+    public void plantPorchTomatoTest() {
+        plantPorchTomato();
+    }
+
+    public void plantPorchTomato() {
+        porchTomato = new TomatoPlant();
+        Assert.assertTrue(porchTomato.getHasBeenHarvested());
+        Assert.assertFalse(porchTomato.getHasBeenFertilized());
+        porchTomato.beFertilized();
+        Assert.assertFalse(porchTomato.getHasBeenHarvested());
+        Assert.assertTrue(porchTomato.getHasBeenFertilized());
     }
 
     @Test
     public void saturdayTest() {
+        allFriday();
+        allSaturday();
+    }
 
+    public void allSaturday() {
+        dailyRidesAndFeeding();
+        dailyEating();
+        harvestPorchTomato();
+    }
+
+    @Test
+    public void harvestPorchTomatoTest() {
+        plantPorchTomato();
+        harvestPorchTomato();
+    }
+
+    public void harvestPorchTomato() {
+        ArrayList<Tomato> fruit = porchTomato.getFruit();
+        Assert.assertTrue(porchTomato.getLowerBoundYield() <= fruit.size());
+        Assert.assertTrue(porchTomato.getUpperBoundYield() >= fruit.size());
+
+        for (Tomato tomato : fruit) {
+            Assert.assertEquals("Yum!",froilanda.eat(tomato));
+        }
     }
 }

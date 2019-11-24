@@ -54,23 +54,9 @@ public class TractorTest {
         Tractor tractor = new Tractor();
         ArrayList<Edible> yield = tractor.harvest(field);
 
-        ArrayList<Integer> expectedMins = new ArrayList<>();
-        field.getCropRowList().stream()
-            .flatMap( row -> row.getCropList().stream())
-            .forEach( crop -> {
-                expectedMins.add(((Crop) crop).getLowerBoundYield());
-            });
-        int expectedMin = expectedMins.stream().mapToInt(x -> x).sum();
-        Assert.assertTrue(expectedMin <= yield.size());
+        Assert.assertTrue(100 <= yield.size());
 
-        ArrayList<Integer> expectedMaxes = new ArrayList<>();
-        field.getCropRowList().stream()
-            .flatMap( row -> row.getCropList().stream())
-            .forEach( crop -> {
-                expectedMaxes.add(((Crop) crop).getUpperBoundYield());
-            });
-        int expectedMax = expectedMaxes.stream().mapToInt(x -> x).sum();
-        Assert.assertTrue(expectedMax >= yield.size());
+        Assert.assertTrue(500 >= yield.size());
 
         yield.stream().forEach( fruit -> {
                 Assert.assertTrue(fruit instanceof Tomato);

@@ -1,7 +1,5 @@
 package com.zipcodewilmington.froilansfarm.people;
 
-import com.zipcodewilmington.froilansfarm.people.Farmer;
-import com.zipcodewilmington.froilansfarm.people.Person;
 import com.zipcodewilmington.froilansfarm.vehicles.Tractor;
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,9 +22,9 @@ public class TestFarmer {
     public void getTractorTest(){
         Farmer farmer=new Farmer("Jom");
         Tractor tractor=new Tractor();
-        farmer.setTractor(tractor);
+        farmer.mount(tractor);
         Tractor expect=tractor;
-        Tractor actual=farmer.getTractor();
+        Tractor actual=(Tractor) farmer.getRidingDevice();
         Assert.assertEquals(expect,actual);
     }
 

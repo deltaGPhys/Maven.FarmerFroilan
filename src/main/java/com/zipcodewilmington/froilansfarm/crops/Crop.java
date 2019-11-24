@@ -61,7 +61,8 @@ public class Crop<E extends Edible> implements Produce {
 
     public void growFood() {
         Random random = new Random();
-        for (int i = 0; i < random.nextInt(this.upperBoundYield-this.lowerBoundYield) + this.lowerBoundYield; i++) {
+        int fruitNum = random.nextInt(this.upperBoundYield-this.lowerBoundYield) + this.lowerBoundYield;
+        for (int i = 0; i < fruitNum; i++) {
             this.fruit.add((E) growAFruit());
         }
         this.hasBeenHarvested = false;

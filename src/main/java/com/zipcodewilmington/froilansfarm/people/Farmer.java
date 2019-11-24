@@ -7,19 +7,19 @@ import com.zipcodewilmington.froilansfarm.vehicles.Tractor;
 
 public class Farmer extends Botanist {
 
-    private Tractor tractor;
+//    private Rideable riding;
 
     public Farmer(String name) {
         super(name);
     }
 
-    public Tractor getTractor() {
-        return this.tractor;
-    }
+//    public Rideable getRiding() {
+//        return this.riding;
+//    }
 
-    public void setTractor(Tractor tractor) {
-        this.tractor = tractor;
-    }
+//    public void setRiding(Rideable riding) {
+//        this.riding = riding;
+//    }
 
     @Override
     public String eat(Edible edible) {
@@ -30,16 +30,16 @@ public class Farmer extends Botanist {
     public String makeNoise() {
         return "Early to bed, early to rise...";
     }
-
-    @Override
-    public void mount(Rideable rideable) {
-        this.tractor = (Tractor) rideable;
-    }
-
-    @Override
-    public void dismount() {
-        this.tractor = null;
-    }
+//
+//    @Override
+//    public void mount(Rideable rideable) {
+//        this.ridingDevice = rideable;
+//    }
+//
+//    @Override
+//    public void dismount() {
+//        this.riding = null;
+//    }
 
     @Override
     public void plant(Class cropClass, CropRow cropRow) {
