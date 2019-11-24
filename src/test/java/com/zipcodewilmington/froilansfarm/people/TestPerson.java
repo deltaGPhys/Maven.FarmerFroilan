@@ -23,15 +23,21 @@ public class TestPerson {
 
     }
     @Test
-    public void makeNoiseTest(){
-        Person person=new Person("");
-        String expected="Blah blah blah";
-        String actual=person.makeNoise();
-        Assert.assertEquals(expected,actual);
+    public void makeNoiseTest() {
+        Person person = new Person("");
+        String expected = "Blah blah blah";
+        String actual = person.makeNoise();
+        Assert.assertEquals(expected, actual);
     }
     @Test
     public void mountTest(){
-        Person person=new Person("");
+       // Person person=new Person("");
+      //  Rideable expected=
+
+
+
+
+
 
     }
 
