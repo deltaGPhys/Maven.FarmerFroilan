@@ -306,6 +306,25 @@ public class DayTests {
     public void allWednesday() {
         dailyRidesAndFeeding();
         dailyEating();
+        wednesdayBuyNewHorse();
+    }
+
+    @Test
+    public void wednesdayBuyNewHorseTest() {
+        wednesdayBuyNewHorse();
+    }
+
+    public void wednesdayBuyNewHorse() {
+        Horse newHorse = new Horse();
+        froilan.mount(newHorse);
+        Assert.assertEquals(newHorse,froilan.getRidingDevice());
+        froilan.dismount();
+        Assert.assertEquals(null,froilan.getRidingDevice());
+
+        farm.getStableList().get(0).add(newHorse);
+        long expected = 11;
+        long actual = farm.getStableList().stream().flatMap(stable -> stable.getHorseList().stream()).count();
+        Assert.assertEquals(expected, actual);
     }
 
     @Test

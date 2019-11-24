@@ -29,16 +29,5 @@ public class TestPerson {
         String actual = person.makeNoise();
         Assert.assertEquals(expected, actual);
     }
-    @Test
-    public void mountTest(){
-       // Person person=new Person("");
-      //  Rideable expected=
-
-
-
-
-
-
-    }
 
 }
