@@ -338,6 +338,7 @@ public class DayTests {
         dailyRidesAndFeeding();
         dailyEating();
         thursdayConversations();
+        thursdayBuyNewTractor();
     }
 
     @Test
@@ -357,6 +358,24 @@ public class DayTests {
             Assert.assertEquals("Bok bok",chicken.makeNoise());
         });
         Assert.assertEquals("<noise>", new Animal().makeNoise());
+    }
+
+    @Test
+    public void thursdayBuyNewTractorTest() {
+        thursdayBuyNewTractor();
+    }
+
+    public void thursdayBuyNewTractor(){
+        Tractor ranger=new Tractor() ;
+        froilan.mount(ranger);
+        Assert.assertEquals(ranger,froilan.getRidingDevice());
+        froilan.dismount();
+        Assert.assertEquals(null,froilan.getRidingDevice());
+        farm.getVehicleList().add(ranger);
+
+        long expected = 4;
+        long actual = farm.getVehicleList().size();
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
