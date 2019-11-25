@@ -1,10 +1,12 @@
 package com.zipcodewilmington.froilansfarm;
 
+import com.zipcodewilmington.froilansfarm.animals.Animal;
 import com.zipcodewilmington.froilansfarm.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.animals.Horse;
 import com.zipcodewilmington.froilansfarm.farm.*;
 import com.zipcodewilmington.froilansfarm.people.Farmer;
 import com.zipcodewilmington.froilansfarm.people.Pilot;
+import com.zipcodewilmington.froilansfarm.vehicles.Aircraft;
 import com.zipcodewilmington.froilansfarm.vehicles.CropDuster;
 import com.zipcodewilmington.froilansfarm.vehicles.Tractor;
 import org.junit.Assert;
@@ -95,7 +97,20 @@ public class ThursdayTest {
         Assert.assertEquals(15,chickens);
     }
     @Test
-    public void conversationTest(){
+    public void buyNewTractorTest(){
+       Tractor ranger=new Tractor() ;
+        froilan.mount(ranger);
+        Assert.assertEquals(ranger,froilan.getRidingDevice());
+        froilan.dismount();
+        Assert.assertEquals(null,froilan.getRidingDevice());
+        farm.getVehicleList().add(ranger);
+
+        long expected = 4;
+        long actual = farm.getVehicleList().size();
+        Assert.assertEquals(expected, actual);
+
+
+
 
 
     }
