@@ -1,5 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
+import com.zipcodewilmington.froilansfarm.animals.Animal;
 import com.zipcodewilmington.froilansfarm.animals.Chicken;
 import com.zipcodewilmington.froilansfarm.animals.Horse;
 import com.zipcodewilmington.froilansfarm.crops.CornStalk;
@@ -8,6 +9,7 @@ import com.zipcodewilmington.froilansfarm.crops.TomatoPlant;
 import com.zipcodewilmington.froilansfarm.edibles.*;
 import com.zipcodewilmington.froilansfarm.farm.*;
 import com.zipcodewilmington.froilansfarm.people.Farmer;
+import com.zipcodewilmington.froilansfarm.people.Person;
 import com.zipcodewilmington.froilansfarm.people.Pilot;
 import com.zipcodewilmington.froilansfarm.vehicles.*;
 import org.junit.Assert;
@@ -335,6 +337,26 @@ public class DayTests {
     public void allThursday() {
         dailyRidesAndFeeding();
         dailyEating();
+        thursdayConversations();
+    }
+
+    @Test
+    public void thursdayConversationTest() {
+        thursdayConversations();
+    }
+
+    public void thursdayConversations() {
+        Assert.assertEquals("Early to bed, early to rise...", froilan.makeNoise());
+        Assert.assertEquals("Pilot goes whoosh!", froilanda.makeNoise());
+        Assert.assertEquals("Blah blah blah", new Person("jimi").makeNoise());
+
+        farm.getStableList().stream().flatMap(stable -> stable.getHorseList().stream()).forEach( horse -> {
+            Assert.assertEquals("Neigh!",horse.makeNoise());
+        });
+        farm.getCoopList().stream().flatMap(coop -> coop.getChickenList().stream()).forEach( chicken -> {
+            Assert.assertEquals("Bok bok",chicken.makeNoise());
+        });
+        Assert.assertEquals("<noise>", new Animal().makeNoise());
     }
 
     @Test
